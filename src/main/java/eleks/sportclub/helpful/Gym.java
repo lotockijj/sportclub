@@ -85,23 +85,7 @@ public class Gym {
 			e.printStackTrace();
 		}
 		*/
-		Client client = new Client("Lotockiy", "Roman", 35, SqlDate.createSqlDate("10-11-1981"),
-				"Lviv", Gender.MAN, false, SqlDate.createSqlDate("02-09-2006"));
-		Price price = new AbonnementsTo16and12Times();
-		client.setPrice(price);
-		price = new Sauna(price);
-		price = new GeneralMassage(price);
-		price = new Solarium(price);
-		price = new Krosfit(price);
-		price = new Yoga(price);
-		price = new AttendingGym(price);
-		price = new Towel(price);
-		price = new OneTimeSlippers(price);
-		price = new Fresh(price);
-		System.out.println(client.getLastName() + " " + client.getFirstName() + "\n" + 
-				"Price: " + client.getPrice().getPrice() +
-				"\nDescription: " + price.getDescription() + 
-				"\nThe whole price: " + price.getPrice());
+		
 	}
 
 }
