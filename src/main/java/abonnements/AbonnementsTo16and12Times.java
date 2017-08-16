@@ -6,12 +6,14 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 
-import decorator.ServiceDecorator;
+import dao.DaoAbonTrack;
+import decorator.Price;
 import tracks.AbonnementsTrack;
 
-public class AbonnementsTo16and12Times extends ServiceDecorator{
+public class AbonnementsTo16and12Times extends Price{
 	private BigDecimal cost = new BigDecimal(390);
 	private AbonnementsTrack track;
+	private DaoAbonTrack dao;
 	
 	public AbonnementsTo16and12Times(){
 		track = new AbonnementsTrack();
@@ -40,6 +42,11 @@ public class AbonnementsTo16and12Times extends ServiceDecorator{
 			cost = cost.multiply(new BigDecimal(0.95));
 			cost = cost.setScale(2, RoundingMode.FLOOR);
 		}
+	}
+
+	@Override
+	public void updateTrack(int id) {
+		dao.updateAbonnementsTrack(track, id);
 	}
 	
 }

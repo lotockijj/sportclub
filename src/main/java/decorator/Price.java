@@ -7,11 +7,10 @@ public abstract class Price {
 	
 	public abstract BigDecimal getPrice();
 	
-	public void setPrice(Date startDate) {
-	}
-
-	public String getDescription() {
-		return "";
-	}
-
+	public abstract String getDescription();
+	
+	public abstract void setPrice(Date startDate);
+	
+	public abstract void updateTrack(int id);
+	
 }

@@ -32,32 +32,6 @@ public class DaoServicesTrack {
 		return listOfServices;
 	}
 	
-	public void getClientFromName(String serchingName){
-		ResultSet myRs = null;
-		try(PreparedStatement prSt = myConn.prepareStatement("select * "
-				+ "from client "
-				+ "join servicesTrack "
-				+ "on client.id = servicesTrack.id "
-				+ "where firstName=?")){
-			System.out.println("something");
-			prSt.setString(1, serchingName);
-			myRs = prSt.executeQuery();
-			while(myRs.next()){
-				String lastName = myRs.getString("lastName");
-				String firstName = myRs.getString("firstName");
-				boolean takeGeneralMassage = myRs.getBoolean("takeGeneralMassage");
-				System.out.println(lastName + " " + firstName + " " + takeGeneralMassage);
-			}
-		} catch(SQLException e){
-			e.printStackTrace();
-		} finally {
-			try {
-				myRs.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
 	 
 	public void addService(ServicesTrack service){
 		try(PreparedStatement mySt = myConn.prepareStatement(""
@@ -75,7 +49,7 @@ public class DaoServicesTrack {
 		}
 	}
 	 
-	public void updateClient(ServicesTrack service, int id){
+	public void updateServicesTrack(ServicesTrack service, int id){
 		try(PreparedStatement myStmt = myConn.prepareStatement("update servicesTrack set "
 				+ "takeGeneralMassage=?, takeSolyariy=?, takeKrosfit=?, "
 				+ "takeYoga=?, numberVisitsMonthly=? where id=?")){
@@ -91,7 +65,7 @@ public class DaoServicesTrack {
 		}
 	}
 	
-	public void deleteClient(int id){
+	public void deleteServicesTrack(int id){
 		try(PreparedStatement myStmt = myConn.prepareStatement(""
 				+ "delete from servicesTrack where id=?")){
 			myStmt.setInt(1, id);

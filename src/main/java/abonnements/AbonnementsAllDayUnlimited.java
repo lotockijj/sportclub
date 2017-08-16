@@ -1,21 +1,27 @@
 package abonnements;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 
-import decorator.ServiceDecorator;
+import dao.DaoAbonTrack;
+import decorator.Price;
 import tracks.AbonnementsTrack;
 
-public class AbonnementsAllDayUnlimited extends ServiceDecorator{
+public class AbonnementsAllDayUnlimited extends Price{
 	private BigDecimal cost = new BigDecimal(490);
 	private AbonnementsTrack track;
+	private DaoAbonTrack dao;
 	
-	public AbonnementsAllDayUnlimited(){
+	public AbonnementsAllDayUnlimited() throws FileNotFoundException, IOException, SQLException{
 		track = new AbonnementsTrack();
 		track.setBaseAllDay(true);
+		dao = new DaoAbonTrack();
 	}
 
 	@Override
@@ -36,6 +42,11 @@ public class AbonnementsAllDayUnlimited extends ServiceDecorator{
 			cost = cost.multiply(new BigDecimal(0.95));
 			cost = cost.setScale(2, RoundingMode.FLOOR);
 		}
+	}
+
+	@Override
+	public void updateTrack(int id) {
+		dao.updateAbonnementsTrack(track, id);
 	}
 
 }

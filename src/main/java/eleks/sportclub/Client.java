@@ -5,6 +5,7 @@ import java.sql.Date;
 import decorator.Price;
 
 public class Client{
+	private int id;
 	private String lastName;
 	private String firstName;
 	private int age;
@@ -43,6 +44,23 @@ public class Client{
 		this.startDate = startDate;
 	}
 
+	public Client(int id, String lastName, String firstName, int age, Date birthDate, String city, Gender gender,
+			boolean bodyBuildingWinner, Date startDate, Price price) {
+		this.id = id;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.age = age;
+		this.birthDate = birthDate;
+		this.city = city;
+		this.gender = gender;
+		this.bodyBuildingWinner = bodyBuildingWinner;
+		this.startDate = startDate;
+		this.price = price;
+	}
+
+	public int getId(){
+		return id;
+	}
 	public String getLastName() {
 		return lastName;
 	}
@@ -71,6 +89,9 @@ public class Client{
 		return price;
 	}
 	
+	public void setId(int id){
+		this.id = id;
+	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -92,6 +113,7 @@ public class Client{
 	public void setBodybuildingWinner(boolean bodyBuildingWinner){
 		this.bodyBuildingWinner = bodyBuildingWinner;
 	}
+	
 	public void setPrice(Price price){
 		price.setPrice(startDate);
 		this.price = price;
