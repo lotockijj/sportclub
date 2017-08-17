@@ -1,7 +1,6 @@
 package eleks.sportclub;
 
 import java.sql.Date;
-
 import decorator.Price;
 
 public class Client{
@@ -45,7 +44,7 @@ public class Client{
 	}
 
 	public Client(int id, String lastName, String firstName, int age, Date birthDate, String city, Gender gender,
-			boolean bodyBuildingWinner, Date startDate, Price price) {
+			boolean bodyBuildingWinner, Date startDate) {
 		this.id = id;
 		this.lastName = lastName;
 		this.firstName = firstName;
@@ -55,7 +54,6 @@ public class Client{
 		this.gender = gender;
 		this.bodyBuildingWinner = bodyBuildingWinner;
 		this.startDate = startDate;
-		this.price = price;
 	}
 
 	public int getId(){
@@ -121,7 +119,7 @@ public class Client{
 	
 	@Override
 	public String toString() {
-		return "Client [lastName=" + lastName + ", firstName=" + firstName + ", age=" + age + ", birthDate=" + birthDate
+		return "Client [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", age=" + age + ", birthDate=" + birthDate
 				+ ", cityName=" + city + ", gender=" + gender + ", bodyBuildingWinner=" + bodyBuildingWinner
 				+ ", startDate=" + startDate + "]";
 	}

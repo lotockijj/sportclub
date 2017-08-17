@@ -8,7 +8,7 @@ import dao.DaoServicesTrack;
 import decorator.Price;
 import tracks.ServicesTrack;
 
-public class AttendingGym extends Price{
+public class AttendingGym implements Price{
 	private Price price;
 	private ServicesTrack track;
 	private DaoServicesTrack dao;

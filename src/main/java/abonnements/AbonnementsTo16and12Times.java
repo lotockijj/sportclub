@@ -10,7 +10,7 @@ import dao.DaoAbonTrack;
 import decorator.Price;
 import tracks.AbonnementsTrack;
 
-public class AbonnementsTo16and12Times extends Price{
+public class AbonnementsTo16and12Times implements Price{
 	private BigDecimal cost = new BigDecimal(390);
 	private AbonnementsTrack track;
 	private DaoAbonTrack dao;

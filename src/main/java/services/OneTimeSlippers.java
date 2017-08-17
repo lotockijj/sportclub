@@ -8,7 +8,7 @@ import dao.DaoServicesTrack;
 import decorator.Price;
 import tracks.ServicesTrack;
 
-public class OneTimeSlippers  extends Price{
+public class OneTimeSlippers  implements Price{
 	private Price price;
 	private ServicesTrack track;
 	private DaoServicesTrack dao;

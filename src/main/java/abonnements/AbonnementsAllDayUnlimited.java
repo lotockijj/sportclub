@@ -13,7 +13,7 @@ import dao.DaoAbonTrack;
 import decorator.Price;
 import tracks.AbonnementsTrack;
 
-public class AbonnementsAllDayUnlimited extends Price{
+public class AbonnementsAllDayUnlimited implements Price{
 	private BigDecimal cost = new BigDecimal(490);
 	private AbonnementsTrack track;
 	private DaoAbonTrack dao;

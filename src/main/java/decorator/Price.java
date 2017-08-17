@@ -3,14 +3,14 @@ package decorator;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-public abstract class Price {
+public interface Price {
 	
-	public abstract BigDecimal getPrice();
+	BigDecimal getPrice();
 	
-	public abstract String getDescription();
+	String getDescription();
 	
-	public abstract void setPrice(Date startDate);
+	void setPrice(Date startDate);
 	
-	public abstract void updateTrack(int id);
+	void updateTrack(int id);
 	
 }
